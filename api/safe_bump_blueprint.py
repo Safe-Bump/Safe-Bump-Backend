@@ -15,5 +15,5 @@ def get_health_report():
     heartRate = int(request.args.get('heart_rate'))
     try:
         return jsonify(result=predict(age, systolicBP, diastolicBP, bs, bodyTemp, heartRate), status=200, )
-    except:
-        return jsonify(result="Error", status=500)
+    except Exception as e:
+        return jsonify(result=e, status=500)
